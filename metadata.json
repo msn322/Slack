@@ -1,0 +1,25 @@
+{
+  "config": {
+    "owner": "root",
+    "group": "root",
+    "filemask": 644,
+    "webroot": "/var/www/html"
+  },
+
+  "packages" : {
+    "install": [
+      "apache2",
+      "php5",
+      "libapache2-mod-php5",
+      "php5-mysql",
+      "php5-mcrypt"
+     ],
+
+     "uninstall": [
+     ]
+  },
+
+  "services":[
+    "apache2"
+  ]
+}
