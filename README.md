@@ -6,18 +6,20 @@ Usage
 * Transfer the TAR file to the destination server in tmp directory
   root@server: cd /tmp
   root@server: scp –r cmt.tar root@server_name:/tmp/
+* Extract the TAR content in /tmp directory
   root@server: tar -xvf cmt.tar 
   root@server: ls 
   bootstrap.sh*  cmt.sh*  index.php  metadata.json  README.md
-  root@server: chmod +x cmt.sh 
+* Change permissions
+  root@server: chmod +x cmt.sh bootstrap.sh 
+* Run bootstrap.sh in order to resolve dependency  
+  root@server: ./bootstrap.sh 
+* Run cmt.sh
   root@server: ./cmt.sh 
+* Test Output on Prod 1 & Prod 2
+   root@server: curl http://<IP address> 
+					
 
-* Clone the git repository to the destination server in tmp directory
-  root@server: cd /tmp
-  root@server: git clone git@github.com:msn322/CmTool.git
-  root@server: ls 
-  bootstrap.sh*  cmt.sh*  index.php  metadata.json  README.md
-  root@server: cmt.sh  
   
 # How to Configure:
 
@@ -42,9 +44,3 @@ Below requirements are fulfilled using the scipt:
    * Edit the metadata.json to add/remove packages and services.
 
    
-=> Output:
-    root@ip-172-31-255-167:~/manpreet# curl http://3.89.241.250
-<?php
-
-header("Content-Type: text/plain");
-echo "Hello, Slack!\n";
